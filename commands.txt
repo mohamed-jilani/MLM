@@ -1,0 +1,67 @@
+
+
+
+mkdir gestion-employes
+
+cd gestion-employes
+
+npm init -y
+
+npm install express sequelize pg pg-hstore qrcode jsonwebtoken dotenv
+ 
+ *************************************************************************************************
+ npm run test-db
+
+npm run sync-db
+npm run seed-db
+
+gestion-employes/
+├── config/
+│   └── database.js
+├── controllers/
+│   ├── employeeController.js
+│   └── attendanceController.js
+├── middleware/
+│   └── authMiddleware.js
+├── models/
+│   ├── Employee.js
+│   ├── Attendance.js
+│   ├── QRCode.js
+│   └── index.js
+├── routes/
+│   ├── employeeRoutes.js
+│   └── attendanceRoutes.js
+├── utils/
+│   └── qrCodeGenerator.js
+├── app.js
+├── server.js
+├── .env
+├── package.json
+
+
+node server.js
+
+npm start
+
+=>GET http://localhost:3000/api/employees
+=>POST http://localhost:3000/api/employees avec un corps JSON
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john.doe@example.com",
+  "phoneNumber": "123456789",
+  "jobTitle": "Developer"
+}
+
+*********************************************************************************
+
+nodemon pour redémarrer automatiquement le serveur après chaque modification :
+bash
+Copier le code
+npm install --save-dev nodemon
+
+"scripts": {
+  "start": "nodemon server.js"
+}
+
+npm start
